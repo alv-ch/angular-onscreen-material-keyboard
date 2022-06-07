@@ -1,41 +1,48 @@
-# Output Directories #
-build/
-dist/
-docs/
-src/core/.ng_pkg_build
-target/
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-.classpath
-.settings/
-
-/.ng_build
-/.temp
+# compiled output
+/dist
 /tmp
+/out-tsc
+# Only exists if Bazel was run
+/bazel-out
 
-.vscode
+# dependencies
+/node_modules
 
-# Dependency directory #
-# https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
-node_modules
+# profiling files
+chrome-profiler-events*.json
 
-# Optional npm cache directory #
-.npm
-npm
-npm-debug.log
-
-# IDE Directories #
-.idea
-!.idea/codeStyleSettings.xml
-!.idea/angular-onscreen-material-keyboard.iml
-
-# External tool builders #
-.externalToolBuilders/
-
-# Locally stored "Eclipse launch configurations" #
+# IDEs and editors
+/.idea
+*.iml
+.project
+.classpath
+.c9/
 *.launch
+.settings/
+*.sublime-workspace
 
-# OS Files #
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/.angular/cache
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
 .DS_Store
+Thumbs.db
 
-# Misc #
-*~
