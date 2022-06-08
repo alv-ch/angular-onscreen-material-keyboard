@@ -26,15 +26,15 @@ export class MatKeyboardKeyComponent implements OnInit, OnDestroy {
     private _repeatIntervalHandler: any;
     private _repeatState: boolean = false; // true if repeating, false if waiting
 
-    active$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+    active$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-    pressed$: BehaviorSubject<boolean> = new BehaviorSubject(false);
-
-    @Input()
-    key: string | KeyboardClassKey;
+    pressed$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
     @Input()
-    icon: IMatIcon;
+        key!: string | KeyboardClassKey;
+
+    @Input()
+        icon!: IMatIcon;
 
     @Input()
     set active(active: boolean) {
@@ -55,37 +55,37 @@ export class MatKeyboardKeyComponent implements OnInit, OnDestroy {
     }
 
     @Input()
-    input?: ElementRef;
+        input?: ElementRef | null;
 
     @Input()
-    control?: AbstractControl;
+        control?: AbstractControl;
 
     @Output()
-    genericClick = new EventEmitter<MouseEvent>();
+        genericClick = new EventEmitter<MouseEvent>();
 
     @Output()
-    enterClick = new EventEmitter<MouseEvent>();
+        enterClick = new EventEmitter<MouseEvent>();
 
     @Output()
-    bkspClick = new EventEmitter<MouseEvent>();
+        bkspClick = new EventEmitter<MouseEvent>();
 
     @Output()
-    capsClick = new EventEmitter<MouseEvent>();
+        capsClick = new EventEmitter<MouseEvent>();
 
     @Output()
-    altClick = new EventEmitter<MouseEvent>();
+        altClick = new EventEmitter<MouseEvent>();
 
     @Output()
-    shiftClick = new EventEmitter<MouseEvent>();
+        shiftClick = new EventEmitter<MouseEvent>();
 
     @Output()
-    spaceClick = new EventEmitter<MouseEvent>();
+        spaceClick = new EventEmitter<MouseEvent>();
 
     @Output()
-    tabClick = new EventEmitter<MouseEvent>();
+        tabClick = new EventEmitter<MouseEvent>();
 
     @Output()
-    keyClick = new EventEmitter<MouseEvent>();
+        keyClick = new EventEmitter<MouseEvent>();
 
     get lowerKey(): string {
         return `${this.key}`.toLowerCase();
@@ -179,9 +179,9 @@ export class MatKeyboardKeyComponent implements OnInit, OnDestroy {
         // this._triggerKeyEvent();
 
         // Manipulate the focused input / textarea value
-        const caret = this.input ? this._getCursorPosition() : 0;
+        const caret = (this.input ? this._getCursorPosition() : 0) ?? 0;
 
-        let char: string;
+        let char: string = '';
         switch (this.key) {
         // this keys have no actions yet
         // TODO: add deadkeys and modifiers
@@ -240,7 +240,7 @@ export class MatKeyboardKeyComponent implements OnInit, OnDestroy {
         // Dispatch Input Event for Angular to register a change
         if (this.input && this.input.nativeElement) {
             setTimeout(() => {
-                this.input.nativeElement.dispatchEvent(new Event('input', { bubbles: true }));
+                this.input?.nativeElement.dispatchEvent(new Event('input', { bubbles: true }));
             });
         }
     }
@@ -289,7 +289,7 @@ export class MatKeyboardKeyComponent implements OnInit, OnDestroy {
 
             // Execute repeating keypress
             this._repeatIntervalHandler = setInterval(() => {
-                const caret = this.input ? this._getCursorPosition() : 0;
+                const caret = (this.input ? this._getCursorPosition() : 0) ?? 0;
                 this._repeatState = true;
 
                 if (keyFn) { keyFn(); }
@@ -300,7 +300,7 @@ export class MatKeyboardKeyComponent implements OnInit, OnDestroy {
                 }
 
                 if (this.input && this.input.nativeElement) {
-                    setTimeout(() => this.input.nativeElement.dispatchEvent(new Event('input', { bubbles: true })));
+                    setTimeout(() => this.input?.nativeElement.dispatchEvent(new Event('input', { bubbles: true })));
                 }
             }, REPEAT_INTERVAL);
         }, REPEAT_TIMEOUT);
@@ -320,8 +320,8 @@ export class MatKeyboardKeyComponent implements OnInit, OnDestroy {
 
     private deleteSelectedText(): void {
         const value = this.inputValue ? this.inputValue.toString() : '';
-        let caret = this.input ? this._getCursorPosition() : 0;
-        let selectionLength = this._getSelectionLength();
+        let caret = (this.input ? this._getCursorPosition() : 0) ?? 0;
+        let selectionLength = this._getSelectionLength() ?? 0;
         if (selectionLength === 0) {
             if (caret === 0) {
                 return;
@@ -340,8 +340,8 @@ export class MatKeyboardKeyComponent implements OnInit, OnDestroy {
 
     private replaceSelectedText(char: string): void {
         const value = this.inputValue ? this.inputValue.toString() : '';
-        const caret = this.input ? this._getCursorPosition() : 0;
-        const selectionLength = this._getSelectionLength();
+        const caret = (this.input ? this._getCursorPosition() : 0) ?? 0;
+        const selectionLength = this._getSelectionLength() ?? 0;
         const headPart = value.slice(0, caret);
         const endPart = value.slice(caret + selectionLength);
 
@@ -371,7 +371,7 @@ export class MatKeyboardKeyComponent implements OnInit, OnDestroy {
 
     // inspired by:
     // ref https://stackoverflow.com/a/2897510/1146207
-    private _getCursorPosition(): number {
+    private _getCursorPosition(): number | undefined {
         if (!this.input) {
             return;
         }
@@ -382,16 +382,18 @@ export class MatKeyboardKeyComponent implements OnInit, OnDestroy {
         } else if ('selection' in window.document) {
             // IE
             this.input.nativeElement.focus();
+            // @ts-ignore
             const selection: any = window.document['selection'];
             const sel = selection.createRange();
             const selLen = selection.createRange().text.length;
-            sel.moveStart('character', -this.control.value.length);
+            sel.moveStart('character', -this.control?.value.length);
 
             return sel.text.length - selLen;
         }
+        return;
     }
 
-    private _getSelectionLength(): number {
+    private _getSelectionLength(): number | undefined {
         if (!this.input) {
             return;
         }
@@ -404,20 +406,23 @@ export class MatKeyboardKeyComponent implements OnInit, OnDestroy {
         if ('selection' in window.document) {
             // IE
             this.input.nativeElement.focus();
+            // @ts-ignore
             const selection: any = window.document['selection'];
             return selection.createRange().text.length;
         }
+
+        return;
     }
 
     // inspired by:
     // ref https://stackoverflow.com/a/12518737/1146207
     // tslint:disable one-line
-    private _setCursorPosition(position: number): boolean {
+    private _setCursorPosition(position: number): boolean | undefined {
         if (!this.input) {
             return;
         }
 
-        this.inputValue = this.control.value;
+        this.inputValue = this.control?.value;
         // ^ this is used to not only get "focus", but
         // to make sure we don't have it everything -selected-
         // (it causes an issue in chrome, and having it doesn't hurt any other browser)

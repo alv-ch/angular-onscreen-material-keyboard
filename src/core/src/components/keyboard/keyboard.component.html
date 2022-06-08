@@ -4,7 +4,7 @@
 >
   <nav class="mat-keyboard-layout">
     <div class="mat-keyboard-row"
-         *ngFor="let row of layout.keys"
+         *ngFor="let row of layout?.keys"
     >
       <ng-container *ngFor="let key of row">
         <mat-keyboard-key class="mat-keyboard-col"

@@ -4,27 +4,27 @@ import { NgControl } from '@angular/forms';
 import { IKeyboardIcons } from '../interfaces/keyboard-icons.interface';
 
 export class MatKeyboardConfig {
-  /** The politeness level for the MatAriaLiveAnnouncer announcement. */
-  politeness?: AriaLivePoliteness = 'assertive';
+    /** The politeness level for the MatAriaLiveAnnouncer announcement. */
+    politeness?: AriaLivePoliteness = 'assertive';
 
-  /** Message to be announced by the MatAriaLiveAnnouncer */
-  announcementMessage? = '';
+    /** Message to be announced by the MatAriaLiveAnnouncer */
+    announcementMessage?: string = '';
 
-  /** The view container to place the overlay for the keyboard into. */
-  viewContainerRef?: ViewContainerRef = null;
+    /** The view container to place the overlay for the keyboard into. */
+    viewContainerRef?: ViewContainerRef;
 
-  /** The length of time in milliseconds to wait before automatically dismissing the keyboard after blur. */
-  duration? = 0;
+    /** The length of time in milliseconds to wait before automatically dismissing the keyboard after blur. */
+    duration? = 0;
 
-  /** Enable a dark keyboard */
-  darkTheme? = null;
+    /** Enable a dark keyboard */
+    darkTheme? = false;
 
-  /** Enable the debug view */
-  isDebug? = false;
+    /** Enable the debug view */
+    isDebug? = false;
 
-  /** Enable the debug view */
-  ngControl?: NgControl;
+    /** Enable the debug view */
+    ngControl?: NgControl;
 
-  /** Custom icon overrides */
-  customIcons?: IKeyboardIcons = {};
+    /** Custom icon overrides */
+    customIcons?: IKeyboardIcons = {};
 }
