@@ -1,0 +1,4 @@
+/projects
+/.idea
+*.iml
+.travis

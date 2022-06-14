@@ -6,9 +6,19 @@ Onscreen virtual keyboard for [Angular] using [Angular Material].
 
 ## Demo
 A demo can be found [here][demo].
+To build the demo run:     
+`"build:demo": "ng build --configuration production --progress=false --base-href=/demo/",`
+
 
 ## Docs
 Generated documentation can be found [here][docs].
+
+## publish to jfrog artifactory
+
+To publish this library login to the alvch npm repository in our jfrog artifactory (ask dev team for username and password or check confluence)
+- npm login
+- to add a user to the scoped @alvch npm repository run:
+- npm adduser --registry=https://alvch.jfrog.io/artifactory/api/npm/alvch --scope=@alvch --always-auth=true
 
 ## Getting started
 1. Install with your prefered packet manager (we're using `npm` here):

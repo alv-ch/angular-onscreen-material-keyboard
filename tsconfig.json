@@ -9,11 +9,6 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
-    "paths": {
-      "angular-onscreen-material-keyboard": [
-        "dist/angular-onscreen-material-keyboard"
-      ]
-    },
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
@@ -22,16 +17,32 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2020",
-    "module": "es2020",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "paths": {
+      "angular-onscreen-material-keyboard": [
+        "./src/core/src/public_api.ts"
+      ]
+    },
+    "module": "es2020",
   },
   "angularCompilerOptions": {
+    "paths": {
+      "angular-onscreen-material-keyboard": [
+        "./src/core/src/public_api.ts"
+      ]
+    },
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "exclude": [
+    ".ng_build"
+  ]
 }

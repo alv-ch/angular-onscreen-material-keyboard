@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, HostBinding, HostListener, Inject, LOCALE_ID, OnInit, Optional, QueryList, ViewChildren } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, HostBinding, HostListener, Inject, LOCALE_ID, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { MatKeyboardRef } from '../../classes/keyboard-ref.class';
@@ -119,7 +119,6 @@ export class MatKeyboardComponent implements OnInit {
      * checks if a given key is currently pressed
      *
      * @param key
-     * @param
      */
     isActive(key: (string | KeyboardClassKey)[]): boolean {
         const modifiedKey: string = this.getModifiedKey(key);
