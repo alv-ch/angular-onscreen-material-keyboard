@@ -7,7 +7,7 @@ Onscreen virtual keyboard for [Angular] using [Angular Material].
 ## Demo
 A demo can be found [here][demo].
 To build the demo run:     
-`"build:demo": "ng build --configuration production --progress=false --base-href=/demo/",`
+`ng build --configuration production --progress=false --base-href=/demo/`
 
 
 ## Docs
