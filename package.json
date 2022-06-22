@@ -1,26 +1,26 @@
 {
-  "name": "angular-onscreen-material-keyboard",
-  "version": "0.6.0",
+  "name": "@alvch/angular-onscreen-material-keyboard",
+  "version": "0.0.1",
   "description": "This package is forked from ngx-material-keyboard with bug fixes and additional features.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/angular-onscreen-material-keyboard.git"
   },
-  "author": "Iris X, Daniel M, Kenneth A",
+  "author": "Iris X, Daniel M, Kenneth A, forked by alvch",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/angular-onscreen-material-keyboard/issues"
   },
   "homepage": "https://github.com/angular-onscreen-material-keyboard",
+  "publishConfig": {
+    "registry": "https://alvch.jfrog.io/artifactory/api/npm/alvch/"
+  },
   "scripts": {
     "ng": "ng",
-    "start": "npm run start:demo",
-    "start:demo": "ng serve --host 0.0.0.0 --disable-host-check",
     "prepare": "npm run build",
-    "build": "ng build",
+    "build": "npm run build:core",
     "build:core": "ng-packagr -p ./src/core/package.json && cpx -p README.md dist/core",
-    "build:demo": "ng build --configuration production --progress=false --base-href=/demo/",
-    "build:docs": "compodoc ./src/core -p ./tsconfig.json --silent --disableCoverage --disablePrivateOrInternalSupport --theme readthedocs --output ./dist/docs",
+    "publish": "echo 'publishing npm package to jfrog artifacotry' && npm publish dist/core",
     "test": "ng test",
     "lint": "ng lint",
     "postinstall": "npm rebuild node-sass"
@@ -76,11 +76,11 @@
     "ng-packagr": "^13.3.1",
     "sass-lint": "1.13.1",
     "ts-node": "8.6.2",
-    "typescript": "^4.6.4"
+    "typescript": "4.6.4"
   },
   "keywords": [
     "angular",
-    "angular11",
+    "angular13",
     "material",
     "keyboard",
     "onscreen",
