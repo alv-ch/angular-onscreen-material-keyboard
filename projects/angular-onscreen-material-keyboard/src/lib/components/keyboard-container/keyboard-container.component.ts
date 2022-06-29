@@ -103,7 +103,7 @@ export class MatKeyboardContainerComponent extends BasePortalOutlet implements O
             const onEnter = this.onEnter;
 
             this._ngZone.run(() => {
-                onEnter.next();
+                onEnter.next({});
                 onEnter.complete();
             });
         }
@@ -140,7 +140,7 @@ export class MatKeyboardContainerComponent extends BasePortalOutlet implements O
             .asObservable()
             .pipe(first())
             .subscribe(() => {
-                this.onExit.next();
+                this.onExit.next({});
                 this.onExit.complete();
             });
     }

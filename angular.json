@@ -2,7 +2,50 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
+  "projects": {
+    "angular-onscreen-material-keyboard": {
+      "projectType": "library",
+      "root": "projects/angular-onscreen-material-keyboard",
+      "sourceRoot": "projects/angular-onscreen-material-keyboard/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/angular-onscreen-material-keyboard/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/angular-onscreen-material-keyboard/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/angular-onscreen-material-keyboard/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/angular-onscreen-material-keyboard/src/test.ts",
+            "tsConfig": "projects/angular-onscreen-material-keyboard/tsconfig.spec.json",
+            "karmaConfig": "projects/angular-onscreen-material-keyboard/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/angular-onscreen-material-keyboard/**/*.ts",
+              "projects/angular-onscreen-material-keyboard/**/*.html"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "angular-onscreen-material-keyboard",
   "cli": {
-    "warnings": {}
+    "defaultCollection": "@angular-eslint/schematics"
   }
 }

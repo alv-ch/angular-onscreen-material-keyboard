@@ -1,0 +1,14 @@
+{
+  "name": "@alvch/angular-onscreen-material-keyboard",
+  "version": "0.0.2",
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "peerDependencies": {
+    "@angular/common": "13",
+    "@angular/core": "13"
+  },
+  "dependencies": {
+    "tslib": "2.4"
+  }
+}

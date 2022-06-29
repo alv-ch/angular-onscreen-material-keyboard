@@ -1,7 +1,7 @@
 # this is a node build
 language: node_js
 
-node_js: 14.15.5
+node_js: 16.15.1  # LTS/Gallium
 
 # cache node modules
 cache:
