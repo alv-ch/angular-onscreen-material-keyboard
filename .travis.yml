@@ -25,7 +25,9 @@ env:
     - NPM_REGISTRY=https://alvch.jfrog.io/artifactory/api/npm/alvch/
     - NPM_SCOPE=@alvch
 
-install: npm i
+install:
+  - npm install verror
+  - npm i
 
 jobs:
   include:
