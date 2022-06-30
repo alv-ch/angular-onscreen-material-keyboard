@@ -13,26 +13,25 @@ cache:
 env:
   global:
     - PROJECT_NAME=@alvch/angular-onscreen-material-keyboard
-    # ARTIFACTORY_NPM_USERNAME
-    - secure: "Nb5wbVeMYsLhO4A1BaJ94IHIv7mPkLHa+PIxCibSGtuS34ZCEWdZkWb1J7dA/5qfSBnJzItVSRxMwE1poC7zG4lPLgMiRQ3/k/mX1OvDjh/CJsoiCCl+ApYhxwOeUEkLl7XZ4okkWoX7PWCA9eFVfO2OwrIJMOIKsH2r8wb929qzkBvlzVy5V3vpo5z5TxuvMGaNoF2UBqUTPtYLskKLUGIGeCTA36JS8dk+c67c0q6bvr8cyDJULbdSWcv8XAWWJpaAkxkMgdvxi2DmG8JfV5FssSsSQP38nSLgERDTEb+BzlVcGbzwjuB1sUkAcPujk5dxgme+VCKfR2VtrKaraIranHHru2pYNkkRpVQyJz9M7ZJ2JN5OqDztl53oqUWs3CSSWM2D1E5jqGJ8oRWsNLYNTAMr0fWXFQXbYdU4I2fAEMj41Y4jsovQpUyARidtnjS1fgTXzsbgIHCBmmBxmJqbDUvm2UwGfpkAkVD72aOD6zGNeLnq1KMTfehFIE9nhGQAzzx9wy5fUcpDYdZB5hzhsIOmv97zD2aBdb9Qs765NsMnbaelKOvwjFix3pHGCphwL2O7Cjoa8BCihZ2hAdxQvdQf4XtVAOUQqTD2DT/mZ/7yp3eOW3IJcqLRkVitw2V41IyadiW7wRPh3g5I7gh/c+10J/t/36JqH/xPzLk="
-    # ARTIFACTORY_NPM_PASSWORD
-    - secure: "JTPIPRUHQaAiF3fpbk3TKWTiWrnNuyio+e/VXLNq4jAR+8EqHzlkCOMIRagaxC75WYyczPuTpoOL/FE423uNzrTEfYnR0s9B35APFGshGwbDP5L8k9LhSyHqJ74ySyrho6fB9TaQHUI0JvKsYXaWbSnoKVc6h1K0qBKLzkEkWDxONtddHK16z9Qm5niGbJY4YcJjKx+REkYfO9zB9On/sMB+XCn2POxkaQcXskDoaXFWkHvO7Wf1+vOZ8ZUgO9ECJLV0xGfiQgufEQpfmZHJky7OASI6sEDLjYHqi+76WFWUJ1KO/22bxwqWmx+bqBQdyKcSV2q918G6YpDgEUOHs+o9cBCxktvacQ6CQZIcehOZO2jqBGB1XrWfCYzecydehelwgY89f1JUyL3pseTs/FMugjXhPqxTiYy6HzudOlwudVj2rih2WZwjxl60nvsrzq+1QpniGd9N5qHMiodhPydPMoDzXZgrUjGiocMHLVjtzQWbHJt1JReDYJzCmfbSk7ZAQD51fRflXA+LaGglbXqtNqi84i2MQ7F6PZfoPlV9ao4UbYSqzef9PMbDy/vURs6lnn7slOAkLngx4L2QU4pMtATCV0avpIkEwIf8SOBuYpSk7G7onU9bIn33EbrwdA8jQlCY9NE1tBfLRg+125Byn6wuhL0IRIeuQDBAjjI="
-    # ARTIFACTORY_NPM_EMAIL
-    - secure: "ULQGU+LCZ6KKtfYSkg5pKCra4MEOsHsZQXdjKz0Z7Jwn1PFiNNExLdpdVkjTjR5QefaP9ycedBsbxCaJfVSG1YyPOKUrBB+qAYSHJsjPGEBbC39QebzTLW+SnvpiThPf8vLsCkbcV19STdhX97HyY+Wzw38h6aPbvUWGQgnS4dnc6VZ0O5KzXoGT6367tFd6EBoFioKee5kwHktOhErIroafJn/3jAWCJyqZKdEiitMXBRd0BETu4CPvnbfyFWKW/HK+UKJ9H4AQs9iHLaRukUvVWPCbfxt/IT4F5ZQ1TaOpxacaCUsyGgraiOwF8TtBFO8Hfvff6aaIirq+WE2Ww5v0eqyHF7pfBHsuPpfyw99cmmlduyf6ln3RxZxd5hPefD3gJqhTWhyhoDYi65OMuKO+biJZuVVAUdwlsEMwE362++f+saDVc+HP9H/WEMdZi+apj7Ydjwd3KcDHvdLqH8m3zSzrfiflMONW1cHa9RSAyAsBpBSSPOhLcbIL0OVYIziLApk3+3gwcqMOP3aeA9o014EqLHjPF+KFvoxeAXfIpCtmS1HJ0W1MFewNBpIQyMIy52b92MIpRmj4vCACWETJNLY4YRq6S6LvHlMrnSACbsIiWBTL7f08YsJ1fJDj7goArHhxrdrfbZRe0AFvht608Cslo4B/aeBtBHPZbjU="
-    # AUTH_TOKEN
-    - secure: "QHGs9C6m99FTB7QW8cek3g70Z+OflNR7FrOpELj8Z29pCD/aSm9qTFhJ5+HChhwTXdRfrZZoxjnMfOjDYj2STneAqUPC9HH8ov/sAH1cylpNBkUhln4eB1qlU90LpBQTVZPc1RWhzM1qxWAr0FId7Wef2fyq8/mkKmG9nJEh3z77d7QNg/oPNpHdfi+PQLZsQHeoaLaDIYs31lG9Tub8OLG5ByC6zYiIW5UIusiDsm/gkA8q3sjrpGuottVnA7uE2LpA8iHnciLHCpQjN39bCQu+3dwLHCg2yn5oBFX0SKhC+6guX8e9ez5RKrdZ6SzWmEVz+S1hGFn5RrGjXm2MkiWV35RcfDYgX74JljyIzbs2pW0yf2ZO3W79YWOjK5KSp8EBQxYIuFzQSyhRoV9kqFa+HjDp2uX5bB+VBtLNl8HLzgh51ElMshEpW6p13fXKZLDcITpu2oVe4oEI3vYQEaRkwYY6+wh+eJ3hPX7B9RVkPzRUAya/vmXvqQMPvxwFz2/TIggIg7rZ7HK4O/6/gBqA9xCtJUfX5mzodX0owoFsCFge5GElKevFkPV+BROxLaE8NF5JqyGiWdf6EinKRQpnEvE9nP0PsHneWk3mGkj8//+GsRTijQF/jxZoT4d5DypGYQP7rtQF74KR2cmqtHqR0XMVjHhc4n8iYkotwZQ="
+    # ALVCH_NPM_VIRTUAL_URL
+    - secure: "ra1lJrMUYigARx5xeYBU9q/gQmsQm4zq86kP4W6c7NTILmxz/zeKuXgt2WKi0xeWE6qPPGrBhz5+3b/oafNUTKP5aHsJVxqXsJhij26exv/LyL7DrIPhN69v7O2SXtAfV0szgP91qg6SSq6PRVK/C971il/xRZKTrPPpnk0N2v2cYY2rHyEtE3Vih9DDpG4ebV3TJ8zfRLtEz2MXyQBzX0fcyt9cdsuUKgogynlBSxRE8dgrvIKr925dEM1Ar85HjbHga6LwD0KPS5WLtU5OJWOkvPPBbDOE3qya8MTUzmSSdnTt3VBNckhMIo5la4qHjVokl/1Uukf2IRlTWRgiOxRmmZ8vwIx+MOK/QMQy9+ON4A28EF3R0pZA21enTCwpu83/bJB9X3CrDnUMats8VER1fVuhKBEaDfrJMMFk+S677sfu4NH8ZJSWI3QOaTy7WbR5E4iuSGi5i8waKw1FY7cedtfpMrMrpcl+pwYXd507EPIkSFAhPQDJgTjK4Vlor1/R7qVEPhwhmHp0mPlkAEYq6rKbvd/sn27Y4opP9Pt4t7Nof8RUEEDlIH+w5JSU+nCwo2+KkrCgpelJbAGSgFijSrWjHUBng3/K96ijSk3QaCxYBE3CIPNJNiPuf7H4NHmPpJe1+rDH3/fcxiMIfvvz03RfmMZpscXUiPYdBD0="
+    # ALVCH_NPM_VIRTUAL_AUTH_TOKEN
+    - secure: "UpJOhJ2YBNMw2tZ3uyhw7QmOFzi7zNcKQDsPSCchL9eVpryjIJld370Byr4H6j8j8gHa5VKoITGTHmhT8vzFVxYgwy/MHwJBZ1tQy0TS341yUwd8mqLAGXSoZjpOhHrQdQX8NQFEOXFQ6WzZ+ArfRDmm2HKrh5AyHB3pBc7yxtzdjeOmx2tz5z444D7mD91wuIbpS0AHPcYqx7E+o4vy/aoEOImCBMKVLLZEa7YSfpSrD7qKynebFmoOPu0MxlOC8+xkIWqBcDrTDLYQS6H4SpiActBiPDz6OO7oGyDrTanFwmuRSWklxVssUwNGJKayMRpVdX+D3sCSIK9Ay6StFimmjhNTYx14IRktvzLe2sntAtDABAb19FZ7ouf6ZfPFMBznXd9Zd1T7PX3kmFdrloRe646vQnMzlUmars0GtNRUzlgUHzoG7kTFsccWjYyqgSG76y56NI2JXnqMt16Y/yQyBAmIXKxkfyInMKISilCi4pAhxjNBkLakEymwRyjA15QBfW1v/yXq+gMeRnTBebxxcKXUve4ElvP06PnkL7R9L+TdJVxGNNoGOw8wmNMdp53l57bMtk/QOMmPNeswGRkUU3DRP53WwyB6fBcQeTFTqX3JnTFXW1GHc9YiEoVBazEI5U9LC7Fk4lS0GjggHeGFqB03Q9qgeExDQqkZgtc="
+    # ALVCH_NPM_URL
+    - secure: "MRZofnuGKKuN1O39QRPzESUivwgoxAcjILaSwaZ083eKjiHtQaBCOVetRAt+n9rJvScjzAvjEZx0STrCuZovDeXCo7aCbCeetJ3+InUph46lwK44wT+BZVGEvYjMo463OiuVsltns1N99INmNI3EI+VK/ialHz2VMBJO/jAZGMh98jEsaWOVP8FzBmiKM4jO4kIvs6xdLMvwW6e/vh2kifSWlEImuwnp7rnm/oZHpCcPCo+6fmphL07QzECdZSegeHALt1KLUMaXvZJW1wUD5i+wAIhkvgPWHloMN5JYOpoVy2ZFZaPPsS+GZlpCjJCafMD/Quw34uPFlXiDcWXvCRuHSQssfAgyo4a81As2QeLKpZx6xjI2/tjh7mnGCAK/Updtr1q9aUJUGQN2ezysILdIUaWs8nYNNofxGNQUtMMcr6TM6TIdmPJR0j3aGXlkM5GyxjwVwzJ9+27W4/y9YjNtH+FJ4+EjLxbKh7zUtM6V5YIvexu64goQDOeupJ5ZzkpYCGRLgmWoDUtC+L5+KZp/PMwlKCSxYzUhUtVR3XoudDV3W5IFvST93botJwLD9XjNYwmDiUPULmcx9j84spOAQtSBRPGvNqF5iTGE0GZvd5ehednHyngJh7a7GFKBOgpp37YaOIlVOw4+Bwv6HB6g+Dt0W38I/s6c7W9cMMA="
+    # ALVCH_NPM_AUTH_TOKEN
+    - secure: "CVUyqocyeWThFlodD+6XKJwD43LtF0ygh92i1iRbMmTOhwpPp3L+KUGdFh926tKhTT/WHoDtbmcdp0yD6OFAoG/JVKL/UfXEV3IDva9NPeZBTyBEsYP4RYdDGyv9JxQM29yjzVxNQJNTYwf8tpf902IAvI8kNK0UNftSvKN0Z6y04ypOujz7pppuuv2BnBJ3imYNOA25as7o5gINMVmfSEp4PN6Ilp2SMcy0WRpI3CfqX7UKrG9oxL/QwiKHtgbJ+HEfK6vj3CMTGvhqh/FwKi5hL9xwDe4jqJTfVccCbTpABHabh080rMu7EdC23th8/qcs1mVTFn3jH1z1ExFIknGGtl8ZxhJTDiFyo3JxdC6W8Fsf9nM31rfPQuQUvXGChlHS5/f/BVTLQw/4Loi4IN9m24AcU5XEDxV3PWFMOrADHla3eY8n1NuMHQ78eMU17GxNEkgIhgKxuCkxAbMTMLOBLLajlXSEPyqmFleHOggBSPRnvfPu2O0wC6P+AtPuBSc/Zhr3iU/F0Lu3fPH05YsJybkqmgARaGIrm9OOZbK2+q9wzZTaMqUhBsXGbONF+6gLhiOx4uPah1l319cmI1n30FzotsNrOQM0+9M24i904xkbgggPpB6Spx1qe4yif5L5SI3kw6n9u+cnuJpQTA6C5Eo9axHwDZ/8lFPJ6Wg="
 jobs:
   include:
     - stage: build core
       before_script:
         - export EXECUTE_DEPLOY_SCRIPT=$(echo "$TRAVIS_BRANCH" | sed -e "s/^master$\|^release.*$/yes/g")
         - "echo Execute deploy script: $EXECUTE_DEPLOY_SCRIPT"
-        - npm config set registry=https://alvch.jfrog.io/artifactory/api/npm/alvch/:_auth=${AUTH_TOKEN}
-        - npm config set @alvch:registry=https://alvch.jfrog.io/artifactory/api/npm/alvch/
-        - npm config set //alvch.jfrog.io/artifactory/api/npm/alvch/${ARTIFACTORY_NPM_PASSWORD}
-        - npm config set //alvch.jfrog.io/artifactory/api/npm/alvch/${ARTIFACTORY_NPM_USERNAME}
-        - npm config set //alvch.jfrog.io/artifactory/api/npm/alvch/${ARTIFACTORY_NPM_EMAIL}
-        - npm config set //alvch.jfrog.io/artifactory/api/npm/alvch/:always-auth=true
+        - npm config set registry=https://${ALVCH_NPM_VIRTUAL_URL}
+        - npm config set //${ALVCH_NPM_VIRTUAL_URL}:_auth=${ALVCH_NPM_VIRTUAL_AUTH_TOKEN}
+        - npm config set @alvch:registry=https://${ALVCH_NPM_URL}
+        - npm config set //${ALVCH_NPM_URL}:_auth=${ALVCH_NPM_AUTH_TOKEN}
+        - npm config set //${ALVCH_NPM_URL}:always-auth=true
       script: true
 
       deploy:

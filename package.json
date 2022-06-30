@@ -12,9 +12,6 @@
     "url": "https://github.com/angular-onscreen-material-keyboard/issues"
   },
   "homepage": "https://github.com/angular-onscreen-material-keyboard",
-  "publishConfig": {
-    "registry": "https://alvch.jfrog.io/artifactory/api/npm/alvch/"
-  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
