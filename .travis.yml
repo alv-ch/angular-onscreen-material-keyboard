@@ -36,7 +36,12 @@ jobs:
         - npm config set //alvch.jfrog.io/artifactory/api/npm/alvch/${ARTIFACTORY_NPM_PASSWORD}
         - npm config set //alvch.jfrog.io/artifactory/api/npm/alvch/${ARTIFACTORY_NPM_USERNAME}
         - npm config set //alvch.jfrog.io/artifactory/api/npm/alvch/${ARTIFACTORY_NPM_EMAIL}
-        - npm config set //alvch.jfrog.io/artifactory/api/npm/alvch/:always-auth=true
+        - npm config set NPM_USER=${ARTIFACTORY_NPM_USERNAME}
+        - npm config set NPM_PASS=${ARTIFACTORY_NPM_PASSWORD}
+        - npm config set NPM_EMAIL=${ARTIFACTORY_NPM_EMAIL}
+        - npm config set NPM_REGISTRY=https://alvch.jfrog.io/artifactory/api/npm/alvch/
+        - npm config set NPM_SCOPE=@alvch
+
       script: true
 
       deploy:
