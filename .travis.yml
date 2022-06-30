@@ -32,6 +32,7 @@ jobs:
         - npm config set @alvch:registry=https:${ALVCH_NPM_URL}
         - npm config set ${ALVCH_NPM_URL}:_auth=${ALVCH_NPM_AUTH_TOKEN}
         - npm config set ${ALVCH_NPM_URL}:always-auth=true
+        - npm config list
       script: true
 
       deploy:
