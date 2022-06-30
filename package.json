@@ -1,6 +1,6 @@
 {
   "name": "@alvch/angular-onscreen-material-keyboard",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "This package is forked from ngx-material-keyboard with bug fixes and additional features.",
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "publish": "echo 'publishing npm package to jfrog artifacotry' && npm publish dist/angular-onscreen-material-keyboard",
+    "publish": "echo 'publishing npm package to jfrog artifacotry' && npm publish dist/angular-onscreen-material-keyboard/",
     "postinstall": "npm rebuild node-sass"
   },
   "private": true,
