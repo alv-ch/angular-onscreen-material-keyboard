@@ -1,5 +1,6 @@
 # this is a node build
 language: node_js
+dist: jammy
 
 node_js: 16.15.1  # LTS/Gallium
 python: 3.6
@@ -34,7 +35,8 @@ script: npm run build
 deploy:
   - provider: script
     skip_cleanup: true
-    script: npm run build && npm run publish
+    cleanup: false
+    script: npm run publish
     on:
       all_branches: true
       condition: "$EXECUTE_DEPLOY_SCRIPT = yes"
