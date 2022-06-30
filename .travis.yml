@@ -24,7 +24,7 @@ env:
 jobs:
   include:
     - stage: build core
-      before_script:
+      before_install:
         - export EXECUTE_DEPLOY_SCRIPT=$(echo "$TRAVIS_BRANCH" | sed -e "s/^master$\|^release.*$/yes/g")
         - "echo Execute deploy script: $EXECUTE_DEPLOY_SCRIPT"
         - npm config set registry=https:${ALVCH_NPM_VIRTUAL_URL}
