@@ -19,28 +19,19 @@ env:
     - secure: "JTPIPRUHQaAiF3fpbk3TKWTiWrnNuyio+e/VXLNq4jAR+8EqHzlkCOMIRagaxC75WYyczPuTpoOL/FE423uNzrTEfYnR0s9B35APFGshGwbDP5L8k9LhSyHqJ74ySyrho6fB9TaQHUI0JvKsYXaWbSnoKVc6h1K0qBKLzkEkWDxONtddHK16z9Qm5niGbJY4YcJjKx+REkYfO9zB9On/sMB+XCn2POxkaQcXskDoaXFWkHvO7Wf1+vOZ8ZUgO9ECJLV0xGfiQgufEQpfmZHJky7OASI6sEDLjYHqi+76WFWUJ1KO/22bxwqWmx+bqBQdyKcSV2q918G6YpDgEUOHs+o9cBCxktvacQ6CQZIcehOZO2jqBGB1XrWfCYzecydehelwgY89f1JUyL3pseTs/FMugjXhPqxTiYy6HzudOlwudVj2rih2WZwjxl60nvsrzq+1QpniGd9N5qHMiodhPydPMoDzXZgrUjGiocMHLVjtzQWbHJt1JReDYJzCmfbSk7ZAQD51fRflXA+LaGglbXqtNqi84i2MQ7F6PZfoPlV9ao4UbYSqzef9PMbDy/vURs6lnn7slOAkLngx4L2QU4pMtATCV0avpIkEwIf8SOBuYpSk7G7onU9bIn33EbrwdA8jQlCY9NE1tBfLRg+125Byn6wuhL0IRIeuQDBAjjI="
     # ARTIFACTORY_NPM_EMAIL
     - secure: "ULQGU+LCZ6KKtfYSkg5pKCra4MEOsHsZQXdjKz0Z7Jwn1PFiNNExLdpdVkjTjR5QefaP9ycedBsbxCaJfVSG1YyPOKUrBB+qAYSHJsjPGEBbC39QebzTLW+SnvpiThPf8vLsCkbcV19STdhX97HyY+Wzw38h6aPbvUWGQgnS4dnc6VZ0O5KzXoGT6367tFd6EBoFioKee5kwHktOhErIroafJn/3jAWCJyqZKdEiitMXBRd0BETu4CPvnbfyFWKW/HK+UKJ9H4AQs9iHLaRukUvVWPCbfxt/IT4F5ZQ1TaOpxacaCUsyGgraiOwF8TtBFO8Hfvff6aaIirq+WE2Ww5v0eqyHF7pfBHsuPpfyw99cmmlduyf6ln3RxZxd5hPefD3gJqhTWhyhoDYi65OMuKO+biJZuVVAUdwlsEMwE362++f+saDVc+HP9H/WEMdZi+apj7Ydjwd3KcDHvdLqH8m3zSzrfiflMONW1cHa9RSAyAsBpBSSPOhLcbIL0OVYIziLApk3+3gwcqMOP3aeA9o014EqLHjPF+KFvoxeAXfIpCtmS1HJ0W1MFewNBpIQyMIy52b92MIpRmj4vCACWETJNLY4YRq6S6LvHlMrnSACbsIiWBTL7f08YsJ1fJDj7goArHhxrdrfbZRe0AFvht608Cslo4B/aeBtBHPZbjU="
-    - NPM_USER=${ARTIFACTORY_NPM_USERNAME}
-    - NPM_PASS=${ARTIFACTORY_NPM_PASSWORD}
-    - NPM_EMAIL=${ARTIFACTORY_NPM_EMAIL}
-    - NPM_REGISTRY=https://alvch.jfrog.io/artifactory/api/npm/alvch/
-    - NPM_SCOPE=@alvch
-
+    # AUTH_TOKEN
+    - secure: "QHGs9C6m99FTB7QW8cek3g70Z+OflNR7FrOpELj8Z29pCD/aSm9qTFhJ5+HChhwTXdRfrZZoxjnMfOjDYj2STneAqUPC9HH8ov/sAH1cylpNBkUhln4eB1qlU90LpBQTVZPc1RWhzM1qxWAr0FId7Wef2fyq8/mkKmG9nJEh3z77d7QNg/oPNpHdfi+PQLZsQHeoaLaDIYs31lG9Tub8OLG5ByC6zYiIW5UIusiDsm/gkA8q3sjrpGuottVnA7uE2LpA8iHnciLHCpQjN39bCQu+3dwLHCg2yn5oBFX0SKhC+6guX8e9ez5RKrdZ6SzWmEVz+S1hGFn5RrGjXm2MkiWV35RcfDYgX74JljyIzbs2pW0yf2ZO3W79YWOjK5KSp8EBQxYIuFzQSyhRoV9kqFa+HjDp2uX5bB+VBtLNl8HLzgh51ElMshEpW6p13fXKZLDcITpu2oVe4oEI3vYQEaRkwYY6+wh+eJ3hPX7B9RVkPzRUAya/vmXvqQMPvxwFz2/TIggIg7rZ7HK4O/6/gBqA9xCtJUfX5mzodX0owoFsCFge5GElKevFkPV+BROxLaE8NF5JqyGiWdf6EinKRQpnEvE9nP0PsHneWk3mGkj8//+GsRTijQF/jxZoT4d5DypGYQP7rtQF74KR2cmqtHqR0XMVjHhc4n8iYkotwZQ="
 jobs:
   include:
     - stage: build core
       before_script:
         - export EXECUTE_DEPLOY_SCRIPT=$(echo "$TRAVIS_BRANCH" | sed -e "s/^master$\|^release.*$/yes/g")
         - "echo Execute deploy script: $EXECUTE_DEPLOY_SCRIPT"
-        - npm config set registry=https://alvch.jfrog.io/artifactory/api/npm/alvch/
+        - npm config set registry=https://alvch.jfrog.io/artifactory/api/npm/alvch/:_authToken=${AUTH_TOKEN}
         - npm config set @alvch:registry=https://alvch.jfrog.io/artifactory/api/npm/alvch/
         - npm config set //alvch.jfrog.io/artifactory/api/npm/alvch/${ARTIFACTORY_NPM_PASSWORD}
         - npm config set //alvch.jfrog.io/artifactory/api/npm/alvch/${ARTIFACTORY_NPM_USERNAME}
         - npm config set //alvch.jfrog.io/artifactory/api/npm/alvch/${ARTIFACTORY_NPM_EMAIL}
-        - npm config set NPM_USER=${ARTIFACTORY_NPM_USERNAME}
-        - npm config set NPM_PASS=${ARTIFACTORY_NPM_PASSWORD}
-        - npm config set NPM_EMAIL=${ARTIFACTORY_NPM_EMAIL}
-        - npm config set NPM_REGISTRY=https://alvch.jfrog.io/artifactory/api/npm/alvch/
-        - npm config set NPM_SCOPE=@alvch
 
       script: true
 
