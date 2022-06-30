@@ -21,26 +21,22 @@ env:
     - secure: "MRZofnuGKKuN1O39QRPzESUivwgoxAcjILaSwaZ083eKjiHtQaBCOVetRAt+n9rJvScjzAvjEZx0STrCuZovDeXCo7aCbCeetJ3+InUph46lwK44wT+BZVGEvYjMo463OiuVsltns1N99INmNI3EI+VK/ialHz2VMBJO/jAZGMh98jEsaWOVP8FzBmiKM4jO4kIvs6xdLMvwW6e/vh2kifSWlEImuwnp7rnm/oZHpCcPCo+6fmphL07QzECdZSegeHALt1KLUMaXvZJW1wUD5i+wAIhkvgPWHloMN5JYOpoVy2ZFZaPPsS+GZlpCjJCafMD/Quw34uPFlXiDcWXvCRuHSQssfAgyo4a81As2QeLKpZx6xjI2/tjh7mnGCAK/Updtr1q9aUJUGQN2ezysILdIUaWs8nYNNofxGNQUtMMcr6TM6TIdmPJR0j3aGXlkM5GyxjwVwzJ9+27W4/y9YjNtH+FJ4+EjLxbKh7zUtM6V5YIvexu64goQDOeupJ5ZzkpYCGRLgmWoDUtC+L5+KZp/PMwlKCSxYzUhUtVR3XoudDV3W5IFvST93botJwLD9XjNYwmDiUPULmcx9j84spOAQtSBRPGvNqF5iTGE0GZvd5ehednHyngJh7a7GFKBOgpp37YaOIlVOw4+Bwv6HB6g+Dt0W38I/s6c7W9cMMA="
     # ALVCH_NPM_AUTH_TOKEN
     - secure: "VMVNOMHY6yAjaZj0kCOE0FXhxHv6u52NuM7QJ2oLEnsCJcQEHdqE0wxMfYfhO6lvJ0LU39tyINPH4zqLh5gshVHcNKf1yh/pHHF/BV+eaOmb51khPDHX5E7heZt6em6lFoSwg/KkYKTAyIkgcLNTIon+KVF/LSFwVwyTmhNwUg8DP/OflHgT2fVXHIQGUwEeNbLukC5s1yx/pZCA7aUSkXEySNwsmzaAf7fvswgKBhTCrRtWK06fpgiqF/54cKgmXmugQdTsl5dvmi5Beh5uJ27VMGAvxtUiFkBdpZTcMaNBuzSi4zycyDgURZwIK57ZxRaI8e5UscAUCXPqxruS0hlgLMdy1QlGTxqED1LBRwiolKtbQqAIiT4eXeg+tjKCb+/iDPGgU+X03IsJo7B+8dvKQa+Ov7W/0xrRj0blEE73aVBmWA5DBJjfaLlHghQIacRIBGdICQ4fe32zUKlRKq0KcYEaMVgeP7pp8Gdh/0TwFm1hWClPAgry6GNjbHzMGc/TgK3Nb6tTJ5yJci9xeUeTWo4ap+d9S8NwpgMcYxCwlk9IXk1XMzfYx/s/eErfHeUWI30fuQpnorGW2Z0euuWxRkvnBDz+9RQdpqF5pGWyYijrhqFgfrpWiBrP9xTKli087J/kgxzCQUbeXA9Xuns90hoDavGQYheGmsRGraE="
-jobs:
-  include:
-    - stage: build core
-      before_install:
-        - export EXECUTE_DEPLOY_SCRIPT=$(echo "$TRAVIS_BRANCH" | sed -e "s/^master$\|^release.*$/yes/g")
-        - "echo Execute deploy script: $EXECUTE_DEPLOY_SCRIPT"
-        - npm config set registry=https:${ALVCH_NPM_VIRTUAL_URL}
-        - npm config set ${ALVCH_NPM_VIRTUAL_URL}:_auth=${ALVCH_NPM_VIRTUAL_AUTH_TOKEN}
-        - npm config set @alvch:registry=https:${ALVCH_NPM_URL}
-        - npm config set ${ALVCH_NPM_URL}:_auth=${ALVCH_NPM_AUTH_TOKEN}
-        - npm config set ${ALVCH_NPM_URL}:always-auth=true
-      script: true
-
-      deploy:
-        - provider: script
-          cleanup: false
-          script: npm run build && npm run publish
-          on:
-            all_branches: true
-            condition: "$EXECUTE_DEPLOY_SCRIPT = yes"
+before_install:
+  - export EXECUTE_DEPLOY_SCRIPT=$(echo "$TRAVIS_BRANCH" | sed -e "s/^master$\|^release.*$/yes/g")
+  - "echo Execute deploy script: $EXECUTE_DEPLOY_SCRIPT"
+  - npm config set registry=https:${ALVCH_NPM_VIRTUAL_URL}
+  - npm config set ${ALVCH_NPM_VIRTUAL_URL}:_auth=${ALVCH_NPM_VIRTUAL_AUTH_TOKEN}
+  - npm config set @alvch:registry=https:${ALVCH_NPM_URL}
+  - npm config set ${ALVCH_NPM_URL}:_auth=${ALVCH_NPM_AUTH_TOKEN}
+  - npm config set ${ALVCH_NPM_URL}:always-auth=true
+script: npm run build
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script: npm run build && npm run publish
+    on:
+      all_branches: true
+      condition: "$EXECUTE_DEPLOY_SCRIPT = yes"
 
 notifications:
   webhooks:
