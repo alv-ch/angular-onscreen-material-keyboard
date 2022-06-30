@@ -2,7 +2,7 @@
 language: node_js
 
 node_js: 16.15.1  # LTS/Gallium
-python: 3
+python: 3.6
 
 # cache node modules
 cache:
@@ -38,6 +38,10 @@ deploy:
     on:
       all_branches: true
       condition: "$EXECUTE_DEPLOY_SCRIPT = yes"
+addons:
+  apt:
+    packages:
+      - g++
 
 notifications:
   webhooks:
