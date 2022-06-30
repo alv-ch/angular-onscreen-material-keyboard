@@ -2,6 +2,7 @@
 language: node_js
 
 node_js: 16.15.1  # LTS/Gallium
+python: 3
 
 # cache node modules
 cache:
