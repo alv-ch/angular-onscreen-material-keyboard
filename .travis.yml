@@ -27,11 +27,11 @@ jobs:
       before_script:
         - export EXECUTE_DEPLOY_SCRIPT=$(echo "$TRAVIS_BRANCH" | sed -e "s/^master$\|^release.*$/yes/g")
         - "echo Execute deploy script: $EXECUTE_DEPLOY_SCRIPT"
-        - npm config set registry=https://${ALVCH_NPM_VIRTUAL_URL}
-        - npm config set //${ALVCH_NPM_VIRTUAL_URL}:_auth=${ALVCH_NPM_VIRTUAL_AUTH_TOKEN}
-        - npm config set @alvch:registry=https://${ALVCH_NPM_URL}
-        - npm config set //${ALVCH_NPM_URL}:_auth=${ALVCH_NPM_AUTH_TOKEN}
-        - npm config set //${ALVCH_NPM_URL}:always-auth=true
+        - npm config set registry=https:${ALVCH_NPM_VIRTUAL_URL}
+        - npm config set ${ALVCH_NPM_VIRTUAL_URL}:_auth=${ALVCH_NPM_VIRTUAL_AUTH_TOKEN}
+        - npm config set @alvch:registry=https:${ALVCH_NPM_URL}
+        - npm config set ${ALVCH_NPM_URL}:_auth=${ALVCH_NPM_AUTH_TOKEN}
+        - npm config set ${ALVCH_NPM_URL}:always-auth=true
       script: true
 
       deploy:
