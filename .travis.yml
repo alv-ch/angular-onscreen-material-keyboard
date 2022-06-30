@@ -27,17 +27,17 @@ jobs:
       before_script:
         - export EXECUTE_DEPLOY_SCRIPT=$(echo "$TRAVIS_BRANCH" | sed -e "s/^master$\|^release.*$/yes/g")
         - "echo Execute deploy script: $EXECUTE_DEPLOY_SCRIPT"
-        - npm config set registry=https://alvch.jfrog.io/artifactory/api/npm/alvch/:_authToken=${AUTH_TOKEN}
+        - npm config set registry=https://alvch.jfrog.io/artifactory/api/npm/alvch/:_auth=${AUTH_TOKEN}
         - npm config set @alvch:registry=https://alvch.jfrog.io/artifactory/api/npm/alvch/
         - npm config set //alvch.jfrog.io/artifactory/api/npm/alvch/${ARTIFACTORY_NPM_PASSWORD}
         - npm config set //alvch.jfrog.io/artifactory/api/npm/alvch/${ARTIFACTORY_NPM_USERNAME}
         - npm config set //alvch.jfrog.io/artifactory/api/npm/alvch/${ARTIFACTORY_NPM_EMAIL}
-
+        - npm config set //alvch.jfrog.io/artifactory/api/npm/alvch/:always-auth=true
       script: true
 
       deploy:
         - provider: script
-          skip_cleanup: true
+          cleanup: false
           script: npm run build && npm run publish
           on:
             all_branches: true
