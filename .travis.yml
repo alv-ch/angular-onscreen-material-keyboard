@@ -25,17 +25,13 @@ env:
     - NPM_REGISTRY=https://alvch.jfrog.io/artifactory/api/npm/alvch/
     - NPM_SCOPE=@alvch
 
-install:
-  - npm install verror
-  - npm i
-
 jobs:
   include:
     - stage: build core
       before_script:
         - export EXECUTE_DEPLOY_SCRIPT=$(echo "$TRAVIS_BRANCH" | sed -e "s/^master$\|^release.*$/yes/g")
         - "echo Execute deploy script: $EXECUTE_DEPLOY_SCRIPT"
-        - npm config set registry=https://alvch.jfrog.io/artifactory/api/npm/alv-npm-virtual/
+        - npm config set registry=https://alvch.jfrog.io/artifactory/api/npm/alvch/
         - npm config set @alvch:registry=https://alvch.jfrog.io/artifactory/api/npm/alvch/
         - npm config set //alvch.jfrog.io/artifactory/api/npm/alvch/${ARTIFACTORY_NPM_PASSWORD}
         - npm config set //alvch.jfrog.io/artifactory/api/npm/alvch/${ARTIFACTORY_NPM_USERNAME}
