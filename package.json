@@ -22,7 +22,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "publish": "echo 'publishing npm package to jfrog artifacotry' && npm publish dist/angular-onscreen-material-keyboard/",
+    "alvch-login": "npm-cli-login",
+    "publish": "npm run alvch-login && echo 'publishing npm package to jfrog artifacotry' && npm publish dist/angular-onscreen-material-keyboard/",
     "postinstall": "npm rebuild node-sass"
   },
   "private": true,
@@ -36,6 +37,7 @@
     "@angular/platform-browser": "13.3",
     "@angular/platform-browser-dynamic": "13.3",
     "@angular/router": "13.3",
+    "npm-cli-login": "1.0.0",
     "rxjs": "7.5",
     "tslib": "2.4",
     "zone.js": "0.11"
