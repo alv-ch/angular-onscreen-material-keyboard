@@ -24,13 +24,6 @@ export const HIDE_ANIMATION = `${AnimationDurations.EXITING} ${AnimationCurves.A
     styleUrls: ['./keyboard-container.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     preserveWhitespaces: false,
-    // animations: [
-    //   trigger('state', [
-    //     state('visible', style({transform: 'translateY(0%)'})),
-    //     transition('visible => hidden', animate(HIDE_ANIMATION)),
-    //     transition('void => visible', animate(SHOW_ANIMATION)),
-    //   ])
-    // ]
     animations: [
         trigger('state', [
             state(`${KeyboardAnimationState.Visible}`, style({ transform: 'translateY(0%)' })),
