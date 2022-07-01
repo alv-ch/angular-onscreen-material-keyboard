@@ -1,55 +1,52 @@
 # this is a node build
 language: node_js
+dist: jammy
+
+node_js: 16.15.1  # LTS/Gallium
+python: 3.6
 
 # cache node modules
 cache:
   directories:
     - "node_modules"
 
-# use npm 5.3.0 due to a bug (https://github.com/npm/npm/issues/19222)
+# make sure to bump the version in package.json before pushing to the artifactory
+
+env:
+  global:
+    - PROJECT_NAME=@alvch/angular-onscreen-material-keyboard
+    # ALVCH_NPM_VIRTUAL_URL
+    - secure: "ra1lJrMUYigARx5xeYBU9q/gQmsQm4zq86kP4W6c7NTILmxz/zeKuXgt2WKi0xeWE6qPPGrBhz5+3b/oafNUTKP5aHsJVxqXsJhij26exv/LyL7DrIPhN69v7O2SXtAfV0szgP91qg6SSq6PRVK/C971il/xRZKTrPPpnk0N2v2cYY2rHyEtE3Vih9DDpG4ebV3TJ8zfRLtEz2MXyQBzX0fcyt9cdsuUKgogynlBSxRE8dgrvIKr925dEM1Ar85HjbHga6LwD0KPS5WLtU5OJWOkvPPBbDOE3qya8MTUzmSSdnTt3VBNckhMIo5la4qHjVokl/1Uukf2IRlTWRgiOxRmmZ8vwIx+MOK/QMQy9+ON4A28EF3R0pZA21enTCwpu83/bJB9X3CrDnUMats8VER1fVuhKBEaDfrJMMFk+S677sfu4NH8ZJSWI3QOaTy7WbR5E4iuSGi5i8waKw1FY7cedtfpMrMrpcl+pwYXd507EPIkSFAhPQDJgTjK4Vlor1/R7qVEPhwhmHp0mPlkAEYq6rKbvd/sn27Y4opP9Pt4t7Nof8RUEEDlIH+w5JSU+nCwo2+KkrCgpelJbAGSgFijSrWjHUBng3/K96ijSk3QaCxYBE3CIPNJNiPuf7H4NHmPpJe1+rDH3/fcxiMIfvvz03RfmMZpscXUiPYdBD0="
+    # ALVCH_NPM_VIRTUAL_AUTH_TOKEN
+    - secure: "UpJOhJ2YBNMw2tZ3uyhw7QmOFzi7zNcKQDsPSCchL9eVpryjIJld370Byr4H6j8j8gHa5VKoITGTHmhT8vzFVxYgwy/MHwJBZ1tQy0TS341yUwd8mqLAGXSoZjpOhHrQdQX8NQFEOXFQ6WzZ+ArfRDmm2HKrh5AyHB3pBc7yxtzdjeOmx2tz5z444D7mD91wuIbpS0AHPcYqx7E+o4vy/aoEOImCBMKVLLZEa7YSfpSrD7qKynebFmoOPu0MxlOC8+xkIWqBcDrTDLYQS6H4SpiActBiPDz6OO7oGyDrTanFwmuRSWklxVssUwNGJKayMRpVdX+D3sCSIK9Ay6StFimmjhNTYx14IRktvzLe2sntAtDABAb19FZ7ouf6ZfPFMBznXd9Zd1T7PX3kmFdrloRe646vQnMzlUmars0GtNRUzlgUHzoG7kTFsccWjYyqgSG76y56NI2JXnqMt16Y/yQyBAmIXKxkfyInMKISilCi4pAhxjNBkLakEymwRyjA15QBfW1v/yXq+gMeRnTBebxxcKXUve4ElvP06PnkL7R9L+TdJVxGNNoGOw8wmNMdp53l57bMtk/QOMmPNeswGRkUU3DRP53WwyB6fBcQeTFTqX3JnTFXW1GHc9YiEoVBazEI5U9LC7Fk4lS0GjggHeGFqB03Q9qgeExDQqkZgtc="
+    # ALVCH_NPM_URL
+    - secure: "E+svT8JwVkI0Csj64xFFxhKpNAavjb+/K7X4wJwOcARlD2bYP9dD1gFp31kxKAun95tS4uLDIbQA3l7FLYj+FPk4fnPn16HjwHsJjY8wt1rfc3xlZldv6D7+mKnNu7kFm/yD7MmWf8Nv0PIRtQS60eBYWA6VAFAES9VqspchJZIYwVqfe/8Ss2zXQdF/IuWkmHbiEVRgKdkjgcp6mEf4oIamjtpj9Bh0REoA38NeGLSL3w8358OBvRmWCPLGwVOgqKx7lMrHe9eyWuVieypf09gqzEhb3mkdyHxo6JIugBuGyNpddCm/HREas8W5h69Zu3lOURe8Cc0jvdTTNZLOXzC1gijT1xyDhWWjGpBZFQo967nWd01aidCmIYCZGPM8Lf21AUOk3jU2CxVdR598JgmQVVs5Y7ZQ9gzldHW2lrbuHkUODyXLeMwvJxvnHoS3vBX4+Cw+GnSzl2+olD4eO01DDxzHq9BV+7v/Ofi2SRkTL8F+KxoSIgWAULDQlrEPiqQZqjrY/wEQgk3qCVWK9lMoXZ9Uf6ch8+p3MV8og5kbkWFXQ0S/uiECXjowaKiJc0urAk6KQUddEWPECug+UGceapT38hNoqt1LFt8RC6m9jbsztGORJGagNZkvlmR6ga6gCXpi39CIQRqOzgmipbXlCwHWG4WsaDm/66pEd44="
+    # ALVCH_NPM_AUTH_TOKEN
+    - secure: "QgDvU9ufmD9dFMNPcgs/GZois/C3J2r7V1X4XALRz77Lpg1tDxW2TM1HFlqsscqJa7aCdvpG+LKYDDEugxEW6I+g3BPgpbXDjOiea2cI4g1WzjNzLrHJuDplTB0qz/xB3miGh6DDiMKTVYjcbLzTYjmp7ycRF94i6c54Fe6UtRwwr69TflcewF4fAHq+2wvy5Syc5N2ibJA4JF3XpUaWj089IY+PCdV7dgdfCh/kHZZUHZXmumvewosGXn10GF8yPqByehiZHej803If13eonnMGX3UiUkv709D09NqBEJv0U8i6PoTU/zb4kTe6arKMylOuZjmBvfUwCkOAxUOQAVO9ZQg/H2osPt6z52o7kHPrvIcg93SjatkrEsQa22xYyJENO9cDHW60ORK9Z+FNIf8XQpQP/49BorlFom0ZCa3dhus6NwoYOsyIVZ7QNnufnPul3tbJgRFQc/panIK0+bkFer7JfJALvFmfNqCXrTyNiu0MV2tl1dP52qWqFhJuDDCvPHlZuuUiECLW6ozbBpUcsvl/6LHogYgeaK+u6keQLjIz4fTrHjO2jcgQ39iSUIGJdV9O/OVuBRHqr80VMJz/nIvj3uART2Gud3V++Y/updG8Xkdaihysx34VNEPM4ci7zlUmth0YDIdNuH75wMiVsCg+Z7NySP16izoJgs8="
 before_install:
-  - npm i -g npm@5.3.0
+  - export EXECUTE_DEPLOY_SCRIPT=$(echo "$TRAVIS_BRANCH" | sed -e "s/^master$\|^release.*$/yes/g")
+  - "echo Execute deploy script: $EXECUTE_DEPLOY_SCRIPT"
+  - npm config set registry=https:${ALVCH_NPM_VIRTUAL_URL}
+  - npm config set ${ALVCH_NPM_VIRTUAL_URL}:_auth=${ALVCH_NPM_VIRTUAL_AUTH_TOKEN}
+  - npm config set @alvch:registry=https:${ALVCH_NPM_URL}
+  - npm config set ${ALVCH_NPM_URL}:_auth=${ALVCH_NPM_AUTH_TOKEN}
+  - npm config set ${ALVCH_NPM_URL}:always-auth=true
+script: npm run build
+deploy:
+  - provider: script
+    skip_cleanup: true
+    cleanup: false
+    script: npm run publish
+    on:
+      all_branches: true
+      condition: "$EXECUTE_DEPLOY_SCRIPT = yes"
+addons:
+  apt:
+    packages:
+      - g++
 
-# install dependencies
-install:
-  - npm install --silent
-
-# the jobs for building and deplyoing docs and demo
-jobs:
-  include:
-    - stage: build core, docs and demo
-      script: npm run build:core
-      before_deploy:
-        - cd dist/core
-      deploy:
-        provider: npm
-        skip_cleanup: true
-        email: $NPM_EMAIL
-        api_key: $NPM_KEY
-        on:
-          tags: true
-          repo: angular-onscreen-material-keyboard/core
-          branch: master
-    - # stage name not required, will continue to use `build core, docs and demo`
-      script: npm run build:docs
-      deploy:
-        provider: pages
-        skip_cleanup: true
-        local_dir: dist/docs
-        github_token: $GITHUB_TOKEN
-        target_branch: gh-pages
-        on:
-          repo: angular-onscreen-material-keyboard/core
-          branch: master
-    - # stage name not required, will continue to use `build core, docs and demo`
-      script: npm run build:demo
-      deploy:
-        provider: pages
-        skip_cleanup: true
-        local_dir: dist/demo
-        github_token: $GITHUB_TOKEN
-        repo: angular-onscreen-material-keyboard/demo
-        target_branch: master
-        on:
-          repo: angular-onscreen-material-keyboard/core
-          branch: master
+notifications:
+  webhooks:
+    on_success: change
+    on_failure: always
+    on_start: never

@@ -1,39 +1,38 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "downlevelIteration": true,
-    "importHelpers": true,
-    "outDir": "./dist/out-tsc",
     "baseUrl": "./",
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "noUnusedParameters": false,
-    "target": "es6",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
     "paths": {
       "angular-onscreen-material-keyboard": [
-        "./src/core/src/public_api.ts"
+        "dist/angular-onscreen-material-keyboard/angular-onscreen-material-keyboard",
+        "dist/angular-onscreen-material-keyboard"
       ]
     },
-    "module": "es2020"
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2017",
+    "module": "es2020",
+    "lib": [
+      "es2020",
+      "dom"
+    ]
   },
   "angularCompilerOptions": {
-    "paths": {
-      "angular-onscreen-material-keyboard": [
-        "./src/core/src/public_api.ts"
-      ]
-    }
-  },
-  "exclude": [
-    ".ng_build"
-  ]
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
 }
